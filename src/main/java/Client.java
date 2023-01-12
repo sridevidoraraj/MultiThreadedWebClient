@@ -1,7 +1,10 @@
 import java.io.*;
 import java.net.Socket;
+import java.util.logging.Logger;
 
 public class Client {
+
+    static Logger logger = Logger.getLogger(Client.class.getName());
 
     public static void main(String[] args) {
 
@@ -10,7 +13,8 @@ public class Client {
             try {
 
                 Socket s = new Socket("localhost", 8080);
-                System.out.println("[CONNECTED]");
+                logger.info("\u001B[33m"+"Connected to port : 8080"+"\u001B[0m");
+//                System.out.println("[CONNECTED]");
 
                 DataInputStream in = new DataInputStream(s.getInputStream());
                 BufferedReader br = new BufferedReader(new FileReader(file));
